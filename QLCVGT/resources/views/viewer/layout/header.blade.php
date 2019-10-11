@@ -3,7 +3,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="viewer/congvanden/danhsach">
                             <img src="pmhdv/images/logo-icon.png" alt="">
                         </a>
                         <span class="logo-text">

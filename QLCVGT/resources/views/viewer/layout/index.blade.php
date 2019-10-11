@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <base href="{{asset('')}}">
     <meta charset="UTF-8">
@@ -21,12 +22,14 @@
     @yield('title')
 </head>
 
+
 <body>
     @include('viewer.layout.header')
 
     <section class="master">
         @include('viewer.layout.menu')
         @yield('content')
+        
     </section>
 </body>
 

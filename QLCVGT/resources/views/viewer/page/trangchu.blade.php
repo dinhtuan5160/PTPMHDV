@@ -3,7 +3,7 @@
 	<title>Trang chủ</title>
 @endsection
 @section('content')
-	<div class="fix-container">
+<div class="fix-container">
             <div class="col-lg-10 pl-0 float-right">
                 <div class="main-body">
                     <div class="sub-header">
@@ -13,15 +13,17 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="search text-right">
-                                    <input type="text" placeholder="Tìm kiếm">
+                                    <form action="{{route('get-timcv')}}" method="get">
+                                    <input type="text" placeholder="Tìm kiếm" name="timcongvan">
                                     <button type="submit" class="btn btn-info">
                                         <i class="fa fa-search"></i>
                                     </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="board">
+                    <!-- <div class="board">
                         <table>
                             <thead>
                                 <tr>
@@ -33,7 +35,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($congvandens as $congvanden)
                                 <tr class="notseen">
                                     <td>
                                         <div class="icons float-right">
@@ -45,8 +46,9 @@
                                     <td>
                                         <div class="name">
                                             <span class="url group-name text-alt text-uppercase" data-url="a">
-                                                [{{$congvanden->documentary_send->updated_at}}] </span>
-                                            <span class="url text-uppercase">{{$congvanden->documentary_send->name}}</span>
+                                                [01-2019-00010] </span>
+                                            <span class="url text-uppercase">Thông báo thay đổi mức đóng bảo hiểm ý
+                                                tế</span>
                                         </div>
                                         <div class="info">
                                             <span style="margin-right: 10px;">
@@ -57,17 +59,9 @@
                                             <span>
                                                 <i class="ti-user"></i>
                                                 <span>Ban hành bởi: </span>
-                                                <span class="url">{{$congvanden->documentary_send->User->name}}</span> /  
-                                                @if($congvanden->documentary_send->User->major->id == 9)
-                                                    <span class="url"> 
-                                                       Trường : {{$congvanden->documentary_send->User->major->name}}</span>
-                                                    </span>
-                                                @else 
-                                                    <span class="url"> 
-                                                       Khoa : {{$congvanden->documentary_send->User->major->name}}</span>
-                                                    </span>
-                                                    @endif 
-
+                                                <span class="url">Vân Anh</span> / <span class="url">Ban giám
+                                                    đốc</span>
+                                            </span>
                                         </div>
                                     </td>
                                     <td>
@@ -76,24 +70,294 @@
                                         </div>
                                         <div class="info">
                                             <span>Tgian: </span>
-                                            <span>{{$congvanden->documentary_send->updated_at}}</span>
+                                            <span>13:35 19/08/2019</span>
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="url">{{$congvanden->documentary_send->type_documentary->name}}</span>
-                                        <div class="info">{{$congvanden->documentary_send->category->name}}</div>
-                                        <div class="info">
-                                            Số người xem: {{$congvanden->documentary_send->number_read}}</div>
+                                        <span class="url">Thông báo</span>
+                                        <div class="info">Nội bộ</div>
+                                        <div class="info">33 người đã xem</div>
                                     </td>
                                     <td>
                                         <div class="action">
-                                            <a href="viewer/congvanden/chitiet/{{$congvanden->id}}" class="action-text">Chi tiết</a>
+                                            <a href="chitiet.html" class="action-text">Chi tiết</a>
                                         </div>
                                     </td>
                                 </tr>
-                                @endforeach
+                                <tr class="seen">
+                                    <td>
+                                        <div class="icons float-right">
+                                            <div class="icon-status">
+                                                <div class="square"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="name">
+                                            <span class="url group-name text-uppercase" data-url="a">
+                                                [01-2019-00010] </span>
+                                            <span class="url text-uppercase">Thông báo thay đổi mức đóng bảo hiểm ý
+                                                tế</span>
+                                        </div>
+                                        <div class="info">
+                                            <span style="margin-right: 10px;">
+                                                <i class="ti-folder"></i>
+                                                <span>Nhóm công văn: </span>
+                                                <span>Không xác định</span>
+                                            </span>
+                                            <span>
+                                                <i class="ti-user"></i>
+                                                <span>Ban hành bởi: </span>
+                                                <span class="url">Vân Anh</span> / <span class="url">Ban giám
+                                                    đốc</span>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="status status-1">
+                                            Đã ban hành
+                                        </div>
+                                        <div class="info">
+                                            <span>Tgian: </span>
+                                            <span>13:35 19/08/2019</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="url">Thông báo</span>
+                                        <div class="info">Nội bộ</div>
+                                        <div class="info">33 người đã xem</div>
+                                    </td>
+                                    <td>
+                                        <div class="action">
+                                            <a href="chitiet.html" class="action-text">Chi tiết</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="seen">
+                                    <td>
+                                        <div class="icons float-right">
+                                            <div class="icon-status">
+                                                <div class="square"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="name">
+                                            <span class="url group-name text-uppercase" data-url="a">
+                                                [01-2019-00010] </span>
+                                            <span class="url text-uppercase">Thông báo thay đổi mức đóng bảo hiểm ý
+                                                tế</span>
+                                        </div>
+                                        <div class="info">
+                                            <span style="margin-right: 10px;">
+                                                <i class="ti-folder"></i>
+                                                <span>Nhóm công văn: </span>
+                                                <span>Không xác định</span>
+                                            </span>
+                                            <span>
+                                                <i class="ti-user"></i>
+                                                <span>Ban hành bởi: </span>
+                                                <span class="url">Vân Anh</span> / <span class="url">Ban giám
+                                                    đốc</span>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="status status-1">
+                                            Đã ban hành
+                                        </div>
+                                        <div class="info">
+                                            <span>Tgian: </span>
+                                            <span>13:35 19/08/2019</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="url">Thông báo</span>
+                                        <div class="info">Nội bộ</div>
+                                        <div class="info">33 người đã xem</div>
+                                    </td>
+                                    <td>
+                                        <div class="action">
+                                            <a href="chitiet.html" class="action-text">Chi tiết</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="seen">
+                                    <td>
+                                        <div class="icons float-right">
+                                            <div class="icon-status">
+                                                <div class="square"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="name">
+                                            <span class="url group-name text-uppercase" data-url="a">
+                                                [01-2019-00010] </span>
+                                            <span class="url text-uppercase">Thông báo thay đổi mức đóng bảo hiểm ý
+                                                tế</span>
+                                        </div>
+                                        <div class="info">
+                                            <span style="margin-right: 10px;">
+                                                <i class="ti-folder"></i>
+                                                <span>Nhóm công văn: </span>
+                                                <span>Không xác định</span>
+                                            </span>
+                                            <span>
+                                                <i class="ti-user"></i>
+                                                <span>Ban hành bởi: </span>
+                                                <span class="url">Vân Anh</span> / <span class="url">Ban giám
+                                                    đốc</span>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="status status-1">
+                                            Đã ban hành
+                                        </div>
+                                        <div class="info">
+                                            <span>Tgian: </span>
+                                            <span>13:35 19/08/2019</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="url">Thông báo</span>
+                                        <div class="info">Nội bộ</div>
+                                        <div class="info">33 người đã xem</div>
+                                    </td>
+                                    <td>
+                                        <div class="action">
+                                            <a href="chitiet.html" class="action-text">Chi tiết</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="seen">
+                                    <td>
+                                        <div class="icons float-right">
+                                            <div class="icon-status">
+                                                <div class="square"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="name">
+                                            <span class="url group-name text-uppercase" data-url="a">
+                                                [01-2019-00010] </span>
+                                            <span class="url text-uppercase">Thông báo thay đổi mức đóng bảo hiểm ý
+                                                tế</span>
+                                        </div>
+                                        <div class="info">
+                                            <span style="margin-right: 10px;">
+                                                <i class="ti-folder"></i>
+                                                <span>Nhóm công văn: </span>
+                                                <span>Không xác định</span>
+                                            </span>
+                                            <span>
+                                                <i class="ti-user"></i>
+                                                <span>Ban hành bởi: </span>
+                                                <span class="url">Vân Anh</span> / <span class="url">Ban giám
+                                                    đốc</span>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="status status--1">
+                                            Không thông qua
+                                        </div>
+                                        <div class="info">
+                                            <span>Tgian: </span>
+                                            <span>13:35 19/08/2019</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="url">Thông báo</span>
+                                        <div class="info">Nội bộ</div>
+                                        <div class="info">33 người đã xem</div>
+                                    </td>
+                                    <td>
+                                        <div class="action">
+                                            <a href="chitiet.html" class="action-text">Chi tiết</a>
+                                        </div>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
+                    </div> -->
+                    <div class="news">
+                        <div class="row pb-4 pl-3 pr-3">
+                            @foreach($congvandens as $congvanden)
+                            <div class="col-lg-4">
+                                <div class="news-item">
+                                    <div class="news-item--img">
+                                        <a href="" class="hvr-grow">
+                                            <img class="img-fluid " src="pmhdv/images/thongbao.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="news-item-text">
+                                        <div class="news-type">
+                                            <ul class="pagination">
+                                                <li>
+                                                    <div class="ban-hanh">Đã ban hành</div>
+                                                </li>
+                                                <li>
+                                                    <div class="ban-hanh loai-congvan">{{$congvanden->documentary_send->type_documentary->name}} - nội bộ</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="news-avatar">
+                                            <figure class="author-figure float-left mb-0 mr-3">
+                                                <a href="">
+                                                    <img src="pmhdv/images/4.jpg" alt="">
+                                                </a>
+                                            </figure>
+                                            <span class="d-inline-block mt-1">
+                                                <a href="">{{$congvanden->documentary_send->User->name}}</a>
+                                            </span>
+                                            <span> - </span>
+                                            
+                                            <span> {{$congvanden->documentary_send->created_at}}</span>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="news-name">
+                                            <a href="viewer/congvanden/chitiet/{{$congvanden->id}}">
+                                                <h4>{{$congvanden->documentary_send->name}}</h4>
+                                            </a>
+                                        </div>
+                                        <div class="news-info">
+                                            <p>Dung lượng
+                                                <span class="macv"> {{number_format($congvanden->documentary_send->storage/1048576,2)}}KB </span>
+                                            </p>
+                                            <p>Loại công văn:
+                                                <span class="pdf">
+                                                    <?php
+                                                    $arr = explode(".",$congvanden->documentary_send->file);
+                                                    ?>
+                                                    @if(strcmp(trim($arr[1]),'doc') == 0 || strcmp(trim($arr[1]),'docx') == 0)                                                  
+                                                    <i class="fas fa-file-word"></i>
+                                                    @else
+                                                        @if(strcmp(trim($arr[1]),'xslt') == 0)
+                                                        <i class="fas fa-file-excel"></i>
+                                                        @else
+                                                            @if(strcmp(trim($arr[1]),'pdf') == 0)
+                                                            <i class="fas fa-file-pdf"></i>
+                                                            @endif
+                                                        @endif
+                                                    @endif
+                                                    
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="text-center mt-4">
+                                            <a href="viewer/congvanden/chitiet/{{$congvanden->id}}" class="chitiet">Xem chi tiết</a>
+                                            <a href="download/{{$congvanden->documentary_send->file}}" download="{{$congvanden->documentary_send->file}}">
+                                            <button type="button" class="btn btn-primary">Dowdload</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>

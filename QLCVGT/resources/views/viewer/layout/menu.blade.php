@@ -1,6 +1,6 @@
 <div class="menu pt-3">
             <div class="menu-top">
-                <a href="them-cv.html" class="btn btn-them">
+                <a href="viewer/congvandi/themmoi" class="btn btn-them">
                     <i class="fas fa-plus"></i>
                     Tạo mới
                 </a>
@@ -17,7 +17,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="viewer/congvanden/danhsach" class="nav-link">
                                 <span class="icon-holder">
                                     <i class="fa fa-reply"></i>
                                 </span>
@@ -30,6 +30,14 @@
                                     <i class="fas fa-paper-plane"></i>
                                 </span>
                                 <span>Công văn đi</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="viewer/congvan/taomoi" class="nav-link">
+                                <span class="icon-holder">
+                                    <i class="fas fa-paper-plane"></i>
+                                </span>
+                                <span>Tạo mới</span>
                             </a>
                         </li>
                         <li class="nav-item">
