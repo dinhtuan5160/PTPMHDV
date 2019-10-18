@@ -18,7 +18,7 @@
 Route::get('login',function(){
 	return view('login');
 });	
-Route::post('login','UserController@postDangNhap');
+Route::post('login','UserController@postDangNhap')->name('post-login');
 
 Route::group(['prefix'=>'viewer'],function(){
 	Route::group(['prefix'=>'congvandi'],function(){
@@ -34,7 +34,7 @@ Route::group(['prefix'=>'viewer'],function(){
 
 		Route::get('chitiet/{id}','CongVanDenController@getChiTiet');
 
-		Route::get('timcongvan','CongVanDenController@getTimCongVanDen')->name('get-timcv');
+		Route::get('timcongvanden','CongVanDenController@getTimCongVanDen')->name('get-timcvden');
 		// Route::get('them','TheLoaiController@getThem');
 
 		// Route::post('them','TheLoaiController@postThem');
@@ -54,6 +54,8 @@ Route::group(['prefix'=>'viewer'],function(){
 		Route::get('taomoi','CongVanController@getTaoMoi');
 
 		Route::post('taomoi','CongVanController@postTaoMoi')->name('post-taocv');
+
+		Route::get('timcongvan','CongVanController@getTimCongVan')->name('get-timcv');
 	});
 
 	Route::group(['prefix'=>'ajax'],function(){

@@ -3,7 +3,11 @@
 <title>Thêm công văn</title>
 @endsection
 @section('content')
-
+<style type="text/css">
+    .select2-results__option[aria-selected=true] {
+    display: none;
+}
+</style>
 
     @if(count($errors) > 0)
         <div class="alert alert-danger">
@@ -107,6 +111,11 @@
                     $('#nguoinhan').html(data);
                 });
             });
+        });
+
+        $("#nguoinhan").select2({
+            placeholder: 'Người nhận',
+            allowClear: true
         });
     </script>
 @endsection

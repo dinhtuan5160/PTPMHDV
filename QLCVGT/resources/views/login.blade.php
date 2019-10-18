@@ -2,55 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="dv/images/favicon.png">
-    <title>Elegant - Quản lý công văn giấy tờ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="pmhdv/css/bootstrap.min.css">
+    <link rel="stylesheet" href="pmhdv/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="pmhdv/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link href="dv/css/morris.css" rel="stylesheet">
-    <link href="dv/css/c3.min.css" rel="stylesheet">
-    <link href="dv/icons/themify-icons/themify-icons.css" rel="stylesheet">
-    <link href="dv/css/style.css" rel="stylesheet">
-    <link href="dv/css/dashboard1.css" rel="stylesheet">
-    <script src="dv/js/jquery-3.2.1.min.js"></script>
-    <script src="dv/js/popper.min.js"></script>
-    <script src="dv/js/bootstrap.min.js"></script>
-    <script src="dv/js/perfect-scrollbar.jquery.min.js"></script>
-    <script src="dv/js/waves.js"></script>
-    <script src="dv/js/sidebarmenu.js"></script>
-    <script src="dv/js/custom.min.js"></script>
-    <script src="dv/js/raphael-min.js"></script>
-    <script src="dv/js/morris.min.js"></script>
-    <script src="dv/js/jquery.sparkline.min.js"></script>
-    <script src="dv/js/d3.min.js"></script>
-    <script src="dv/js/c3.min.js"></script>
-    <script src="dv/js/dashboard1.js"></script>
-    <script src="dv/js/script.js"></script>
+    <link rel="stylesheet" href="pmhdv/css/themify-icons.css">
+    <link rel="stylesheet" href="pmhdv/css/style.css">
+    <script src="pmhdv/js/jquery.min.js"></script>
+    <script src="pmhdv/js/popper.min.js"></script>
+    <script src="pmhdv/js/bootstrap.min.js"></script>
+    <script src="pmhdv/js/owl.carousel.js"></script>
+    <script src="pmhdv/js/script.js"></script>
+    <title>Đăng nhập</title>
 </head>
 
 <body id="login-bg">
     <div class="login">
         <div class="login-title">
-            <img src="dv/images/logo-icon.png" alt="">
-            <span>Chào mừng tới Elegant</span>
+            <img src="pmhdv/images/logo-icon.png" alt="">
+            <span>Trường đại học công nghiệp Hà Nội</span>
         </div>
+        @if(count($errors) > 0)
+        <div class="alert alert-danger">
+            @foreach($errors->all() as $err)
+                {{ $err }}<br>
+            @endforeach
+        </div>
+    @endif
+
+    @if(session('thongbao'))
+        <div class="alert alert-success">
+            {{ session('thongbao') }}
+        </div>
+    @endif
         <div class="form">
-            <form action="login" class="login-form " method="POST">
-            	@CSRF
+            <form action="{{route('post-login')}}" class="login-form" method="post">
+                @CSRF
                 <div class="login-fields">
                     <div class="login-user">
                         <div class="login-user_icon">
-                            <img src="dv/images/user-icon.png" alt="">
+                            <img src="pmhdv/images/user-icon.png" alt="">
                         </div>
-                        <input type="text" placeholder="Tài khoản" name="username">
+                        <input type="text" placeholder="Email" name="username">
                     </div>
                     <div class="login-password">
                         <div class="login-user_icon">
-                            <img src="dv/images/lock_icon.png" alt="">
+                            <img src="pmhdv/images/lock_icon.png" alt="">
                         </div>
                         <input type="password" placeholder="Mật khẩu" name="pass">
                     </div>
@@ -59,10 +60,10 @@
                             Đăng nhập
                         </button>
                     </div>
-                    <!-- <p class="login-signup text-center mt-4">
+                    <p class="login-signup text-center mt-4">
                         Don't have an account ?
                         <a href="#" class="login-message">Sign up</a>
-                    </p> -->
+                    </p>
                 </div>
             </form>
             <form action="" class="register-form">

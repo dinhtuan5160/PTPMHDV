@@ -49,4 +49,10 @@ class CongVanController extends Controller
         $congvans = documentary::where('id_user',$id)->get(); 
         return view('viewer.congvan.danhsach',['congvans'=>$congvans]);
     }
+    public function getTimCongVan(Request $request){
+        $id = Auth::user()->id;
+        $congvantimkiems = documentary::where('name','like','%'.$request->timcongvan.'%')->get();
+
+        return view('viewer.congvan.timkiemcongvan',['congvantimkiems'=>$congvantimkiems]);
+   }
 }

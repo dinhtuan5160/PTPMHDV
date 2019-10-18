@@ -26,7 +26,7 @@
 <body>
     @include('viewer.layout.header')
 
-    <section class="master">
+    <section class="master pr-3">
         @include('viewer.layout.menu')
         @yield('content')
         
