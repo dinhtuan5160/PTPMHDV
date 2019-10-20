@@ -84,7 +84,7 @@
                 </div>
                 <div class="login-submit">
                     <button type="submit" class="btn-login">
-                        <a href="index.html">Sign up</a>
+                        Sign up
                     </button>
                 </div>
                 <p class="login-signup text-center mt-4">
