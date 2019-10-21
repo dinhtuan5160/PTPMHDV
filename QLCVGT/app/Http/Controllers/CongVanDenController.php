@@ -22,7 +22,7 @@ class CongVanDenController extends Controller
 
    public function getTimCongVanDen(Request $request){
         $id = Auth::user()->id;
-        $congvantimkiems = documentary_send::join('documentary_receive','documentary_send.id', '=', 'documentary_receive.id_send')->where('name','like','%'.$request->timcongvan.'%')->where('documentary_receive.id_user',$id)->get();
+        $congvantimkiems = documentary_send::join('documentary_receive','documentary_send.id', '=', 'documentary_receive.id_send')->where('name','like','%'.$request->timcongvanden.'%')->where('documentary_receive.id_user',$id)->get();
 
         return view('viewer.page.timkiemcongvanden',['congvantimkiems'=>$congvantimkiems]);
    }
