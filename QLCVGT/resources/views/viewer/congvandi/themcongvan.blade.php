@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Nội dung văn bản<sup>*</sup></label>
-                                    <textarea cols="30" rows="10" name="noidung"></textarea>
+                                    <textarea cols="30" rows="10" name="noidung" id="editor"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Tệp đính kèm<sup>*</sup></label>
@@ -117,5 +117,6 @@
             placeholder: 'Người nhận',
             allowClear: true
         });
+       
     </script>
 @endsection
